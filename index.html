@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        .dancing-script { font-family: 'Dancing Script', cursive; }
+        .poppins { font-family: 'Poppins', sans-serif; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1.05); }
+            75% { transform: scale(1.15); }
+        }
+        
+        .float { animation: float 6s ease-in-out infinite; }
+        .pulse { animation: pulse 2s ease-in-out infinite; }
+        .fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+        .sparkle { animation: sparkle 2s ease-in-out infinite; }
+        .heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffc0cb, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .love-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-particle 4s linear infinite;
+        }
+        
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(0); opacity: 0; }
+        }
+        
+        .photo-frame {
+            border: 3px solid #fff;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.5);
+        }
+        
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 min-h-screen overflow-x-hidden">
+    
+    <!-- Floating Love Particles -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-10"></div>
+    
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative">
+        <div class="text-center z-20 px-4">
+            <div class="mb-8">
+                <div class="text-8xl mb-4 heartbeat">❤️</div>
+                <h1 class="text-6xl md:text-8xl dancing-script gradient-text font-bold mb-6">
+                    Happy Birthday
+                </h1>
+                <h2 class="text-4xl md:text-6xl dancing-script text-pink-600 mb-8">
+                    My Beautiful Love
+                </h2>
+            </div>
+            
+            <p class="text-xl md:text-2xl poppins text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Three years of love, laughter, and countless beautiful memories. 
+                Today we celebrate you, the most amazing person in my world.
+            </p>
+            
+            <button onclick="startJourney()" class="bg-gradient-to-r from-pink-500 to-red-500 text-white px-12 py-4 rounded-full text-xl poppins font-semibold hover:scale-105 transition-transform duration-300 shadow-2xl pulse">
+                Begin Our Love Story ✨
+            </button>
+        </div>
+        
+        <!-- Floating Hearts -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 text-4xl text-pink-300 float" style="animation-delay: 0s;">💖</div>
+            <div class="absolute top-40 right-20 text-3xl text-red-300 float" style="animation-delay: 1s;">💕</div>
+            <div class="absolute bottom-40 left-20 text-5xl text-pink-400 float" style="animation-delay: 2s;">💗</div>
+            <div class="absolute bottom-20 right-10 text-4xl text-red-400 float" style="animation-delay: 3s;">❤️</div>
+            <div class="absolute top-1/2 left-5 text-3xl text-pink-300 float" style="animation-delay: 4s;">💝</div>
+            <div class="absolute top-1/3 right-5 text-4xl text-red-300 float" style="animation-delay: 5s;">💞</div>
+        </div>
+    </section>
+
+    <!-- Our Story Timeline -->
+    <section id="timeline" class="py-20 px-4 section-hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl dancing-script text-center mb-16 gradient-text">Our Love Story</h2>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-pink-300 to-red-300"></div>
+                
+                <!-- Year 1 -->
+                <div class="flex items-center mb-16 timeline-item">
+                    <div class="w-1/2 pr-8 text-right">
+                        <div class="bg-white p-6 rounded-2xl shadow-xl photo-frame">
+                            <h3 class="text-2xl dancing-script text-pink-600 mb-3">When We First Met</h3>
+                            <div class="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                                <img src="image1.jpeg" alt="Our first meeting" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <p class="poppins text-gray-700">The moment I knew you were special. Your smile lit up my world.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-pink-500 rounded-full border-4 border-white"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+                
+                <!-- Year 2 -->
+                <div class="flex items-center mb-16 timeline-item">
+                    <div class="w-1/2 pr-8"></div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-500 rounded-full border-4 border-white"></div>
+                    <div class="w-1/2 pl-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-xl photo-frame">
+                            <h3 class="text-2xl dancing-script text-red-600 mb-3">Growing Closer</h3>
+                            <div class="w-full h-48 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                                <img src="image2.jpeg" alt="Growing closer" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <p class="poppins text-gray-700">Every day with you brought new adventures and deeper love.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Year 3 -->
+                <div class="flex items-center mb-16 timeline-item">
+                    <div class="w-1/2 pr-8 text-right">
+                        <div class="bg-white p-6 rounded-2xl shadow-xl photo-frame">
+                            <h3 class="text-2xl dancing-script text-pink-600 mb-3">Three Years Strong</h3>
+                            <div class="w-full h-48 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                                <img src="image3.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                            <p class="poppins text-gray-700">Here we are, stronger than ever, with so many dreams ahead.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-pink-500 rounded-full border-4 border-white"></div>
+                    <div class="w-1/2 pl-8"></div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Notes Section -->
+    <section id="notes" class="py-20 px-4 bg-gradient-to-r from-pink-100 to-rose-100 section-hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl dancing-script text-center mb-16 gradient-text">Little Love Notes</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl mb-4 text-center">💕</div>
+                    <p class="dancing-script text-xl text-pink-600 mb-4 text-center">"Your laugh is my favorite sound"</p>
+                    <p class="poppins text-gray-700 text-center">Every time you laugh, my heart skips a beat. Your joy is contagious and makes every day brighter.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl mb-4 text-center">🌟</div>
+                    <p class="dancing-script text-xl text-red-600 mb-4 text-center">"You make me a better person"</p>
+                    <p class="poppins text-gray-700 text-center">Your love, kindness, and strength inspire me to be the best version of myself every single day.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl mb-4 text-center">🌹</div>
+                    <p class="dancing-script text-xl text-pink-600 mb-4 text-center">"Forever isn't long enough"</p>
+                    <p class="poppins text-gray-700 text-center">Three years feels like yesterday, and I can't wait to spend the rest of my life loving you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Heart Canvas -->
+    <section id="interactive" class="py-20 px-4 section-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl dancing-script mb-8 gradient-text">Click to Create Love ✨</h2>
+            <div class="relative bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8 shadow-2xl">
+                <canvas id="loveCanvas" width="800" height="400" class="w-full h-auto border-4 border-pink-200 rounded-2xl cursor-pointer"></canvas>
+                <!-- <div class="fixed top-0 left-0 w-full h-full bg-gradient-to-br from-pink-100 to-rose-100 opacity-50 rounded-3xl">
+                    <img src="image5.jpeg" alt="Our first meeting" class="w-full h-full object-cover rounded-lg">
+                </div> -->
+                <p class="mt-4 poppins text-gray-600">Click anywhere to create floating hearts! 💖</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Gallery -->
+    <section id="gallery" class="py-20 px-4 bg-gradient-to-r from-rose-100 to-pink-100 section-hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl dancing-script text-center mb-16 gradient-text">Our Beautiful Moments</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image5.jpeg" alt="Our first meeting" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-pink-600 text-center">Nervous butterflies and magic</p>
+                </div>
+                
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image6.jpeg" alt="Growing closer" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-red-600 text-center">Adventures together</p>
+                </div>
+                
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image7.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-pink-600 text-center">Perfect moments at home</p>
+                </div>
+                
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image8.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-red-600 text-center">Every achievement together</p>
+                </div>
+                
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image9.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-pink-600 text-center">Laughter and joy</p>
+                </div>
+                
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image10.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-red-600 text-center">Making new memories</p>
+                </div>
+
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image11.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-pink-600 text-center">Our love story continues</p>
+                </div>
+
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image12.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-red-600 text-center">Forever and always</p>
+                </div>
+
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image13.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-pink-600 text-center">You are my everything</p>
+                </div>
+
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image14.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-red-600 text-center">Together, we are unstoppable</p>
+                </div>
+
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image15.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-pink-600 text-center">You are my forever</p>
+                </div>
+
+                <div class="photo-frame rounded-2xl overflow-hidden bg-white p-4">
+                    <div class="w-full h-64 bg-gradient-to-br from-red-100 to-pink-100 rounded-lg flex items-center justify-center text-gray-500 mb-4">
+                        <img src="image16.jpeg" alt="Three years strong" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <p class="dancing-script text-xl text-red-600 text-center">My heart belongs to you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Message -->
+    <section id="birthday-message" class="py-20 px-4 section-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="bg-white rounded-3xl p-12 shadow-2xl">
+                <div class="text-6xl mb-8 heartbeat">🎂</div>
+                <h2 class="text-5xl dancing-script gradient-text mb-8">Happy Birthday, My Love!</h2>
+                
+                <div class="space-y-6 poppins text-lg text-gray-700 leading-relaxed">
+                    <p>Today marks another year of your incredible existence, and I feel so blessed to be part of your journey.</p>
+                    
+                    <p>Three years ago, you walked into my life and changed everything. You brought color to my black and white world, music to my silence, and endless love to my heart.</p>
+                    
+                    <p>Your kindness, your strength, your beautiful soul - everything about you amazes me every single day. You're not just my girlfriend; you're my best friend, my partner in crime, my safe haven, and my greatest adventure.</p>
+                    
+                    <p>As you blow out your candles today, know that my wish is simple: to love you more with each passing day and to build a lifetime of beautiful memories together.</p>
+                    
+                    <p class="dancing-script text-2xl text-pink-600 font-bold">Happy Birthday, Beautiful. Here's to many more years of love, laughter, and endless happiness together! ❤️</p>
+                </div>
+                
+                <div class="mt-12 flex justify-center space-x-4">
+                    <div class="text-4xl sparkle" style="animation-delay: 0s;">✨</div>
+                    <div class="text-4xl sparkle" style="animation-delay: 0.5s;">💖</div>
+                    <div class="text-4xl sparkle" style="animation-delay: 1s;">✨</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Controls -->
+    <div class="fixed bottom-4 right-4 z-30">
+        <button id="musicToggle" class="bg-pink-500 text-white p-4 rounded-full shadow-lg hover:bg-pink-600 transition-colors duration-300">
+            🎵
+        </button>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            function addParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'love-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                const hearts = ['💖', '💕', '💗', '❤️', '💝', '💞'];
+                particle.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                particle.style.background = 'transparent';
+                particle.style.fontSize = Math.random() * 10 + 15 + 'px';
+                
+                particlesContainer.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 4000);
+            }
+            
+            setInterval(addParticle, 800);
+        }
+
+        // Interactive heart canvas
+        function initCanvas() {
+            const canvas = document.getElementById('loveCanvas');
+            const ctx = canvas.getContext('2d');
+            const hearts = [];
+            
+            canvas.addEventListener('click', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+                const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+                
+                hearts.push({
+                    x: x,
+                    y: y,
+                    size: Math.random() * 20 + 10,
+                    speedY: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 2,
+                    opacity: 1,
+                    color: `hsl(${Math.random() * 60 + 320}, 70%, 60%)`
+                });
+            });
+            
+            function drawHeart(x, y, size, color) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.scale(size / 20, size / 20);
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.moveTo(0, 3);
+                ctx.bezierCurveTo(-10, -8, -25, -5, -25, 5);
+                ctx.bezierCurveTo(-25, 15, 0, 25, 0, 25);
+                ctx.bezierCurveTo(0, 25, 25, 15, 25, 5);
+                ctx.bezierCurveTo(25, -5, 10, -8, 0, 3);
+                ctx.fill();
+                ctx.restore();
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = hearts.length - 1; i >= 0; i--) {
+                    const heart = hearts[i];
+                    heart.y -= heart.speedY;
+                    heart.x += heart.speedX;
+                    heart.opacity -= 0.01;
+                    
+                    if (heart.opacity <= 0) {
+                        hearts.splice(i, 1);
+                        continue;
+                    }
+                    
+                    ctx.globalAlpha = heart.opacity;
+                    drawHeart(heart.x, heart.y, heart.size, heart.color);
+                }
+                
+                ctx.globalAlpha = 1;
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        // Smooth scrolling and section reveal
+        function startJourney() {
+            document.getElementById('timeline').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('section-hidden');
+                    entry.target.classList.add('section-visible');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initCanvas();
+            
+            // Observe all sections for animation
+            document.querySelectorAll('.section-hidden').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Music toggle (you can add actual audio file here)
+            const musicToggle = document.getElementById('musicToggle');
+            const audio = new Audio('minnale.m4a');
+            let isPlaying = false;
+            
+            musicToggle.addEventListener('click', () => {
+                if (isPlaying) {
+                    musicToggle.innerHTML = '🎵';
+                    musicToggle.classList.remove('pulse');
+                    audio.pause();
+                    audio.currentTime = 0;
+                } else {
+                    musicToggle.innerHTML = '🎶';
+                    musicToggle.classList.add('pulse');
+                    audio.play().catch(e => console.log('Error playing audio:', e));
+                }
+                isPlaying = !isPlaying;
+            });
+        });
+    </script>
+</body>
+</html>
